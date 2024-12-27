@@ -1,0 +1,27 @@
+*,*::after, *::before{
+ box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: #292929;
+}
+
+.paleta{
+    --position: 50;
+
+    position: absolute;
+    background-color: white;
+    top: calc(var(--position) * 1vh);
+    transform: translateY(-50%);
+    width: 1vh;
+    height: 10vh;
+}
+
+.paleta.esquerda{
+    left: 1vw;
+}
+
+.paleta.direita{
+    right: 1vw;
+}
