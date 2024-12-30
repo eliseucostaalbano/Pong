@@ -1,4 +1,5 @@
 const VELOCIDADE_INICIAL = 0.015
+const AUMENTO_VELOCIDADE = 0.00001
 
 export default class Bola {
     constructor(bolaElem){
@@ -22,6 +23,10 @@ set y(value){
     this.bolaElem.style.setProperty("--y", value)
 }
 
+rect(){
+    return this.bolaElem.getBoundingClientRect()
+}
+
 reset(){
 this.x = 50
 this.y = 50
@@ -38,6 +43,18 @@ this.velocidade = VELOCIDADE_INICIAL
 update(delta){
     this.x +=  this.direction.x * this.velocidade * delta
     this.y +=  this.direction.y * this.velocidade * delta
+    this.velocidade += AUMENTO_VELOCIDADE* delta
+    const rect = this.rect()
+
+    if (rect.bottom >= window.innerHeight || rect.top <= 0) {
+        this.direction.y *= -1
+      }
+
+      if (rect.right >= window.innerWidth|| rect.left <= 0) {
+        this.direction.x *= -1
+      }
+
+
     }
 }
 
