@@ -17,6 +17,10 @@ set position(value) {
       }
 
 
+rect(){
+  return this.paletaElem.getBoundingClientRect()
+}
+
 reset(){
     this.position = 50
 }
